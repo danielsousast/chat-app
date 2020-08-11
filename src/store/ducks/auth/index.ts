@@ -3,7 +3,7 @@ import {Action} from 'redux';
 
 const initialState: AuthState = {
   email: '',
-  password: '',
+  uid: '',
   signed: false,
 };
 

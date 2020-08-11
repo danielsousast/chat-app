@@ -1,4 +1,3 @@
-import {SagaIterator} from 'redux-saga';
 import {put, call} from 'redux-saga/effects';
 import {Alert} from 'react-native';
 import {
@@ -6,11 +5,11 @@ import {
   checkLoginSuccess,
   signInFailure,
   signInSuccess,
+  signUpFailure,
+  signUpSuccess,
 } from './actions';
 import auth from '@react-native-firebase/auth';
-import {DataType, AuthTypes, AuthCredentials} from './types';
-import {TakeableChannel} from 'redux-saga';
-import {Action} from 'redux';
+import {signinRequestAction, signupRequestAction} from './types';
 
 export function* checkLogin() {
   try {
@@ -26,7 +25,7 @@ export function* checkLogin() {
   }
 }
 
-export function* signIn(data) {
+export function* signIn(data: signinRequestAction) {
   try {
     const payload = data.payload;
 
@@ -36,9 +35,27 @@ export function* signIn(data) {
       payload.password,
     );
     yield put(signInSuccess());
+
     Alert.alert('Sucesso');
   } catch (error) {
-    console.log(error);
     yield put(signInFailure());
+  }
+}
+
+export function* signUp(data: signupRequestAction) {
+  try {
+    const payload = data.payload;
+
+    yield call(
+      [auth(), auth().createUserWithEmailAndPassword],
+      payload.email,
+      payload.password,
+    );
+
+    yield put(signUpSuccess());
+    Alert.alert('Sucesso', 'Agora você já pode fazer seu login');
+  } catch (error) {
+    yield put(signUpFailure());
+    Alert.alert('Ocorreu um erro', 'Verifique seus dados');
   }
 }

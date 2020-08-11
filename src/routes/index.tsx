@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import SignIn from '../screens/SignIn';
 import Preload from '../screens/Preload';
 import Home from '../screens/Home';
+import SignUp from '../screens/SignUp';
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,8 @@ export default function Routes() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="SignUp" component={SignUp} />
+
         <Stack.Screen name="Preload" component={Preload} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Home" component={Home} />

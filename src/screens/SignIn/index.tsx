@@ -1,6 +1,7 @@
 import React, {useState, useCallback} from 'react';
+import {useNavigation} from '@react-navigation/native';
 
-import {Container, Input, Button, ButtonText} from './styles';
+import {Container, Input, Button, ButtonText, Link, LinkText} from './styles';
 import {useDispatch} from 'react-redux';
 import {signInRequest} from '../../store/ducks/auth/actions';
 
@@ -8,13 +9,15 @@ const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigation = useNavigation();
   const dispatch = useDispatch();
 
   const handleLogin = () => {
-    // TO DO login action
     dispatch(signInRequest({email, password}));
+  };
 
-    //console.log(email, password);
+  const navigateToSignUp = () => {
+    navigation.navigate('SignUp');
   };
 
   return (
@@ -35,6 +38,9 @@ const SignIn: React.FC = () => {
       <Button onPress={handleLogin}>
         <ButtonText>Entrar</ButtonText>
       </Button>
+      <Link onPress={navigateToSignUp}>
+        <LinkText>Criar uma conta</LinkText>
+      </Link>
     </Container>
   );
 };

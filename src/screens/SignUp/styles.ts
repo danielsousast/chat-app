@@ -13,7 +13,7 @@ export const Input = styled.TextInput`
   height: 46px;
   border-radius: 8px;
   background: #eee;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   padding-left: 20px;
 `;
 
@@ -34,7 +34,7 @@ export const ButtonText = styled.Text`
 export const Link = styled.TouchableOpacity`
   width: 80%;
   height: 46px;
-  border-radius: 8px;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
