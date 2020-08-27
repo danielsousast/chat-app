@@ -22,6 +22,11 @@ export interface signupRequestAction {
   payload: AuthSignUp;
 }
 
+export interface userFirebaseReponse {
+  email:string | null;
+  uid:string | null;
+}
+
 export interface AuthState {
   readonly email: string;
   readonly uid: string;
