@@ -8,7 +8,6 @@ if (__DEV__) {
     .configure()
     .useReactNative()
     .use(reactotronRedux())
-    .use(reactotronSaga())
     .connect();
 
   tron.clear();

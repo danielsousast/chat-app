@@ -5,7 +5,8 @@ import SignIn from '../screens/SignIn';
 import Preload from '../screens/Preload';
 //import Home from '../screens/Home';
 import SignUp from '../screens/SignUp';
-import TabNavigator from './TabNavigator';
+import TabNavigator from './HomeTab';
+import HomeStack from './HomeStack';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +20,7 @@ export default function Routes() {
         <Stack.Screen name="Preload" component={Preload} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="Home" component={TabNavigator} />
+        <Stack.Screen name="Home" component={HomeStack} />
       </Stack.Navigator>
     </NavigationContainer>
   );

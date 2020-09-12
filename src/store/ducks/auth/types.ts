@@ -10,6 +10,10 @@ export enum AuthTypes {
   SIGNUP_REQUEST = '@auth/SIGNUP_REQUEST',
   SIGNUP_SUCCESS = '@auth/SIGNUP_SUCCESS',
   SIGNUP_FAILURE = '@auth/SIGNUP_FAILURE',
+
+  SIGNOUT_REQUEST = '@auth/SIGNOUT_REQUEST',
+  SIGNOUT_SUCCESS = '@auth/SIGNOUT_SUCCESS',
+  SIGNOUT_FAILURE = '@auth/SIGNOUT_FAILURE',
 }
 
 export interface signinRequestAction {
