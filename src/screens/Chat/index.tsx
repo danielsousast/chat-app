@@ -21,6 +21,8 @@ import {
   SendIput,
 } from './styles';
 import {useSafeAreaFrame} from 'react-native-safe-area-context';
+import {format, isToday} from 'date-fns';
+import {ptBR} from 'date-fns/locale';
 
 const Chat: React.FC = () => {
   const navigation = useNavigation();
@@ -38,7 +40,15 @@ const Chat: React.FC = () => {
   );
 
   const invertedMessages = useMemo(() => {
-    let newMessages = [...messages];
+    let newMessages = messages.map((message) => {
+      const parsedDate = new Date(message.date);
+      return {
+        ...message,
+        formattedDate: isToday(parsedDate)
+          ? 'Hoje'
+          : format(parsedDate, "dd'/'MM'/'yyy", {locale: ptBR}),
+      };
+    });
 
     return newMessages.reverse();
   }, [messages]);

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import colors from '../../styles/colors';
 
 export const Container = styled.View`
   flex: 1%;
@@ -14,7 +15,7 @@ export const SignOutButton = styled.TouchableOpacity`
 `;
 
 export const SignOutButtonText = styled.Text`
-  color: #f52e5d;
+  color: ${colors.primary};
   font-size: 16px;
   font-weight: bold;
 `;

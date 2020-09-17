@@ -28,6 +28,8 @@ export interface Message {
   key: string;
   message: string;
   uid: string;
+  date: Date;
+  formattedDate?: Date;
 }
 
 export interface SendMessageData {

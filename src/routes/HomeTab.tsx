@@ -4,6 +4,7 @@ import Contacts from '../screens/Contacts';
 import Chats from '../screens/Chats';
 import Settings from '../screens/Settings';
 import {Platform} from 'react-native';
+import colors from '../styles/colors';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -14,10 +15,10 @@ export default function TabNavigator() {
         style: {
           paddingTop: Platform.OS === 'ios' ? 50 : 0,
         },
-        activeTintColor: '#f52e5d',
+        activeTintColor: colors.primary,
         inactiveTintColor: '#999',
         indicatorStyle: {
-          backgroundColor: '#f52e5d',
+          backgroundColor: colors.primary,
         },
       }}>
       <Tab.Screen

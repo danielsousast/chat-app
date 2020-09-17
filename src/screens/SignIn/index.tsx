@@ -2,8 +2,10 @@ import React, {useState, useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 import {Container, Input, Button, ButtonText, Link, LinkText} from './styles';
-import {useDispatch} from 'react-redux';
-import {signInRequest} from '../../store/ducks/auth/actions';
+import {useDispatch, useSelector} from 'react-redux';
+import {setLoading, signInRequest} from '../../store/ducks/auth/actions';
+import Loading from '../../components/Loading';
+import {ApplicationState} from '../../store';
 
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +14,11 @@ const SignIn: React.FC = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
+  const {loading} = useSelector((state: ApplicationState) => state.auth);
+
   const handleLogin = () => {
+    dispatch(setLoading());
+
     dispatch(signInRequest({email, password}));
   };
 
@@ -41,6 +47,7 @@ const SignIn: React.FC = () => {
       <Link onPress={navigateToSignUp}>
         <LinkText>Criar uma conta</LinkText>
       </Link>
+      {loading && <Loading />}
     </Container>
   );
 };

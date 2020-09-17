@@ -14,7 +14,7 @@ const Bubble: React.FC<BubbleProps> = ({data}) => {
   return (
     <Container isMe={uid === data.uid}>
       <Message isMe={uid === data.uid}>{data.message}</Message>
-      <MessageDate isMe={uid === data.uid}>20/05/2020</MessageDate>
+      <MessageDate isMe={uid === data.uid}>{data.formattedDate}</MessageDate>
     </Container>
   );
 };

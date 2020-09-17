@@ -14,6 +14,8 @@ export enum AuthTypes {
   SIGNOUT_REQUEST = '@auth/SIGNOUT_REQUEST',
   SIGNOUT_SUCCESS = '@auth/SIGNOUT_SUCCESS',
   SIGNOUT_FAILURE = '@auth/SIGNOUT_FAILURE',
+
+  AUTH_LOADING = '@auth/AUTH_LOADING',
 }
 
 export interface signinRequestAction {
@@ -27,14 +29,15 @@ export interface signupRequestAction {
 }
 
 export interface userFirebaseReponse {
-  email:string | null;
-  uid:string | null;
+  email: string | null;
+  uid: string | null;
 }
 
 export interface AuthState {
   readonly email: string;
   readonly uid: string;
   readonly signed: boolean;
+  readonly loading: boolean;
 }
 
 export interface AuthCredentials {

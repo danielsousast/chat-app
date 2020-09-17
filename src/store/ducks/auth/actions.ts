@@ -7,9 +7,9 @@ import {
   userFirebaseReponse,
 } from './types';
 
-import {Alert} from 'react-native';
-import {getSignInError, getSignUpError} from '../../../utils/AuthErrors';
-import {Dispatch} from 'redux';
+import { Alert } from 'react-native';
+import { getSignInError, getSignUpError } from '../../../utils/AuthErrors';
+import { Dispatch } from 'redux';
 
 export const checkLoginRequest = () => {
   return (dispatch: any) => {
@@ -84,8 +84,12 @@ export const signOutRequest = () => {
 
   return {
     type: AuthTypes.SIGNOUT_SUCCESS,
-    payload: {
-      status: 2,
-    },
   };
 };
+
+
+export const setLoading = () => {
+  return {
+    type: AuthTypes.AUTH_LOADING,
+  };
+}
