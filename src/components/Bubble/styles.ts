@@ -28,3 +28,10 @@ export const MessageDate = styled.Text<MessageProps>`
   color:#333;
   text-align:${props => props.isMe ? 'right' : "left"};
 `;
+
+export const Image = styled.Image<MessageProps>`
+  font-size:14px;
+  text-align:${props => props.isMe ? 'right' : "left"};
+  height:200px;
+  width:200px;
+`;

@@ -1186,6 +1186,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/database/-/database-7.4.1.tgz#d066f189620a86778a98ab614465847e3a0fb875"
   integrity sha512-NjBS1rRrQPmL+Dfmpp+kb+1u1ktzSMM2LKBOCzwMWcg6yIubmy8c0E+Jq8C9ZfB/bN1Uoft6jAyxA7lLxqibuw==
 
+"@react-native-firebase/storage@^7.4.3":
+  version "7.4.3"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-7.4.3.tgz#efee8fee66e54312a2b3a400b28b0d751c9d6893"
+  integrity sha512-C3pOQi0rEHYZo+CUdy+KA8LqcEG4in8B6jUJKOXq4tSK/fAflr287GWBcgNj6iWYJMwr3PCkMvGmfsm6+hzkDw==
+
 "@react-navigation/bottom-tabs@^5.8.0":
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/@react-navigation/bottom-tabs/-/bottom-tabs-5.8.0.tgz#d7386809bceeead0adcaacf61b6563be9cefd5cb"
@@ -1402,6 +1407,11 @@
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
+
+"@types/react-native-fetch-blob@^0.10.5":
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/@types/react-native-fetch-blob/-/react-native-fetch-blob-0.10.5.tgz#31fd03950f81256c63896514399723be10b6c85e"
+  integrity sha512-FdNaKMvQ3QMzpJll5pAATNZaS9dKAl7PebO6pX0f5QAUfQQYsV9Tgtv1Rho4xuoeZ3sztpJfYuM4CfMKJFiR4w==
 
 "@types/react-native-vector-icons@^6.4.5":
   version "6.4.5"
@@ -5888,6 +5898,11 @@ react-native-gesture-handler@^1.7.0:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.4"
     prop-types "^15.7.2"
+
+react-native-image-picker@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-2.3.3.tgz#eaacd4a1ed9e9887613be31f0765478ca2f18a51"
+  integrity sha512-i/7JDnxKkUGSbFY2i7YqFNn3ncJm1YlcrPKXrXmJ/YUElz8tHkuwknuqBd9QCJivMfHX41cmq4XvdBDwIOtO+A==
 
 react-native-iphone-x-helper@^1.0.3, react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"

@@ -22,20 +22,23 @@ export interface Conversation {
 export interface Chat {
   key: string;
   title: string;
+  other: string;
 }
 
 export interface Message {
   key: string;
-  message: string;
+  message?: string;
   uid: string;
-  date: Date;
+  date: Date | string;
   formattedDate?: Date;
+  type: string;
 }
 
 export interface SendMessageData {
-  messageText: string;
+  content: string;
   owner: string;
   activeChat: string;
+  type: string;
 }
 
 export interface ChatState {

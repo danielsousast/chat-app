@@ -3,6 +3,8 @@ import {BackHandler, TextInput} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {HeaderBackButton} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ImagePicker from 'react-native-image-picker';
+import FetchBlog from 'react-native-fetch-blob';
 import {useDispatch, useSelector} from 'react-redux';
 import {ApplicationState} from '../../store';
 import {
@@ -10,6 +12,7 @@ import {
   sendMessageRequest,
   setActiveChat,
   getMessagesOff,
+  uploadImage,
 } from '../../store/ducks/chat/actions';
 import Bubble from '../../components/Bubble';
 import {
@@ -19,6 +22,9 @@ import {
   Footer,
   SendButton,
   SendIput,
+  AttachmentButton,
+  ImagePreviewContent,
+  ImagePreview,
 } from './styles';
 import {useSafeAreaFrame} from 'react-native-safe-area-context';
 import {format, isToday} from 'date-fns';
@@ -56,6 +62,8 @@ const Chat: React.FC = () => {
   const uid = useSelector((state: ApplicationState) => state.auth.uid);
 
   const [messageText, setMessagetext] = useState<string>('');
+  const [imagelUrl, setImagelUrl] = useState<string>('');
+
   const inputRef = useRef<TextInput>(null);
 
   useEffect(() => {
@@ -89,9 +97,43 @@ const Chat: React.FC = () => {
   const onSendMessage = () => {
     if (messageText.trim() === '') return;
 
-    dispatch(sendMessageRequest({messageText, owner: uid, activeChat}));
+    dispatch(
+      sendMessageRequest({
+        type: 'text',
+        content: messageText,
+        owner: uid,
+        activeChat,
+      }),
+    );
 
     setMessagetext('');
+  };
+
+  const onChooseImage = () => {
+    ImagePicker.showImagePicker({}, (response) => {
+      if (response.uri) {
+        setImagelUrl(response.uri);
+
+        let uri = response.uri.replace('file://', '');
+
+        dispatch(
+          uploadImage(uri, (image: string) => {
+            dispatch(
+              sendMessageRequest({
+                type: 'image',
+                content: image,
+                owner: uid,
+                activeChat,
+              }),
+            );
+          }),
+        );
+
+        setTimeout(() => {
+          setImagelUrl('');
+        }, 1000);
+      }
+    });
   };
 
   const getFooterPadding = () => {
@@ -102,6 +144,16 @@ const Chat: React.FC = () => {
     }
 
     return 16;
+  };
+
+  const renderImagePreview = () => {
+    if (imagelUrl) {
+      return (
+        <ImagePreviewContent>
+          <ImagePreview source={{uri: imagelUrl}} />
+        </ImagePreviewContent>
+      );
+    }
   };
 
   return (
@@ -116,8 +168,12 @@ const Chat: React.FC = () => {
           )}
           keyExtractor={(item) => item.key}
         />
+        {renderImagePreview()}
       </Content>
       <Footer style={{paddingBottom: getFooterPadding()}}>
+        <AttachmentButton underlayColor="#eee" onPress={onChooseImage}>
+          <Icon name="image" size={28} color="#f52e5d" />
+        </AttachmentButton>
         <SendIput
           ref={inputRef}
           value={messageText}

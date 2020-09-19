@@ -1,4 +1,3 @@
-import { Platform } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import { Message } from '../../store/ducks/chat/types';
@@ -44,4 +43,22 @@ export const SendButton = styled.TouchableHighlight`
     justify-content: center;
     align-items: center;
     border-radius: 25px;
+`;
+
+export const AttachmentButton = styled.TouchableHighlight`
+    width: 45px;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+`;
+
+export const ImagePreviewContent = styled.View`
+    height: 100px;
+    margin:8px;
+`;
+
+export const ImagePreview = styled.Image`
+    width:100px;
+    height: 100px;
 `;
