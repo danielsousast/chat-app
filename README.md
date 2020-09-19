@@ -15,9 +15,10 @@ This is a Chat App with React Native and Firebase
 ## Screens
 
  <p>
-  <img src="github/auth.png" width="200">
-  <img src="github/home.png" width="200"> 
+    <img src="github/auth.png" width="200">
+    <img src="github/home.png" width="200"> 
     <img src="github/chat.png" width="200">
+    <img src="github/send.png" width="200">
  </p>
 
 ---
